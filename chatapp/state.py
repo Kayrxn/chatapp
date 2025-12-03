@@ -10,8 +10,12 @@ class State(rx.State):
     # Keep track of the chat history as a list of (question, answer) tuples.
     chat_history: list[tuple[str, str]]
 
+
     @rx.event
     def answer(self):
         # Our chatbot is not very smart right now...
         answer = "I don't know!"
         self.chat_history.append((self.question, answer))
+        self.question = ""
+
+
